@@ -1,0 +1,17 @@
+教学需要，这里我们重新建立一个项目TSTest,在桌面新建立一个文件夹，然后在VSCode中打开。
+打开终端，输入npm init -y,创建package.json文件
+在终端中输入tsc --init,创建tsconfig.json文件
+修改tsconfig.json配置rootDir和outDir.
+新建src文件夹，在里边建立index.html,page.ts文件
+编写index.html文件，并引入page.ts文件
+编写page.ts文件。
+
+yarn add --dev parcel@next
+修改package.json里边的代码。
+{
+
+  "scripts": {
+    "test": "parcel ./src/index.html"
+  },
+}
+
