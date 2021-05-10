@@ -1,65 +1,70 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import React from 'react'
+import Link from 'next/link'
+import Router from 'next/router'
 
-export default function Home() {
+// 只能用 query传递参数  ?id=
+
+// routeChangeStart  路由将要发生变化
+// routeChangeComplete  发生变化之后
+// beforeHistoryChange
+// routeChangeError
+// hashChangeStart
+// hashChangeComplete
+
+const Home = () => {
+  // 钩子函数  常用于路由跳转动画，离开路由关闭链接等防止内存溢出
+  Router.events.on('routeChangeStart',(url,{shallow}) => {
+    console.log('1 routeChangeStart->路由开始变化，参数为：',url,shallow);
+  })
+  Router.events.on('beforeHistoryChange',(url,{shallow}) => {
+    console.log('2 beforeHistoryChange->路由变化结束，参数为：',url,shallow);
+  })
+  Router.events.on('routeChangeComplete',(url,{shallow}) => {
+    console.log('3 routeChangeComplete->路由变化结束，参数为：',url,shallow);
+  })
+  Router.events.on('routeChangeError',(url,{shallow}) => {
+    console.log('4 routeChangeError->路由发生错误，参数为：',url,shallow);
+  }) //不包括404
+  Router.events.on('hashChangeStart',(url,{shallow}) => {
+    console.log('5 hashChangeStart->hash路由发生改变之前，参数为：',url,shallow);
+  })
+  Router.events.on('hashChangeComplete',(url,{shallow}) => {
+    console.log('6 hashChangeComplete->hash路由发生改变之后，参数为：',url,shallow);
+  })
+
+  function goToA(){
+    Router.push('/Sudieer')
+  }
+  function getArticle(){
+    Router.push({
+      pathname: '/article',
+      query: {
+        name: 'A'
+      }
+    })
+  }
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+      <div>
+          <div>我是首页</div>
+          {
+            // <div><Link href='/Sudieer'><a>A页面</a></Link></div>
+            // <div><Link href='/SudieerB'><a>B页面</a></Link></div>
+            // <div>
+            //    <button onClick={goToA}>A页面</button>
+            // </div>
+          }
+          <div>
+            <Link href={{pathname: '/article',query: {name: 'A'}}}><a>A文章</a></Link>
+            <Link href='/article?name=B'><a>B文章</a></Link>
+            <div>
+              <button onClick={getArticle}>A文章</button>
+            </div>
+            <div>
+              <Link href='#Sudieer'><a>选苏蝶</a></Link>
+            </div>
+          </div>
+      </div>
   )
 }
+
+export default Home
