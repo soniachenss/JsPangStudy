@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Example9 from './Example9'
+import UseContextDemo2 from './UseContextDemo2'
 
-ReactDOM.render(<Example9 />, document.getElementById('root') );
+ReactDOM.render(<UseContextDemo2 />, document.getElementById('root') );
