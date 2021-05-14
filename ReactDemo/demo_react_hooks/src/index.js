@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import UseContextDemo2 from './UseContextDemo2'
+import ThemeContextTest from './ThemeContextTest'
 
-ReactDOM.render(<UseContextDemo2 />, document.getElementById('root') );
+ReactDOM.render(<ThemeContextTest />, document.getElementById('root') );
