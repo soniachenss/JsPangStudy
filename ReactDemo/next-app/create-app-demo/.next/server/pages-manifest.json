@@ -1,0 +1,15 @@
+{
+  "/SudieerA": "pages/SudieerA.html",
+  "/SudieerB": "pages/SudieerB.html",
+  "/_app": "pages/_app.js",
+  "/api/hello": "pages/api/hello.js",
+  "/article": "pages/article.js",
+  "/header": "pages/header.html",
+  "/": "pages/index.html",
+  "/sudieer": "pages/sudieer.html",
+  "/time": "pages/time.html",
+  "/transferArticleId": "pages/transferArticleId.html",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/404": "pages/404.html"
+}

@@ -1,11 +1,15 @@
 import React, { useRef, useState, useEffect } from 'react'
 
 function UseRefDemo() {
+
+    //获取React JSX中的DOM元素
     const inputEl = useRef(null)
     const onButtonClick = () => {
         inputEl.current.value = 'Hello, sudieer'
         console.log(inputEl);
     }
+
+    // 保存变量（不常用）
     const [text, setText] = useState('sudieer')
 
     const textRef = useRef()
