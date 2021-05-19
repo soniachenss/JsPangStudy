@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import dynamic from 'next/dynamic'
+import { Button } from 'antd'
 
 
 
@@ -16,6 +17,7 @@ function Time(){
             <div>现在的时间是{nowTime}</div>
             <LoadingYourCom />
             <div><button onClick={changeTime}>切换时间格式</button></div>
+            <Button type='primary'>蚂蚁组件</Button>
         </>
     )
 }

@@ -23,20 +23,12 @@ function useWinSize(){
     return size
 }
 
-var merge = function(nums1, m, nums2, n) {
-    nums1.slice(0,m).push(...(nums2.slice(0,n)))
-    console.log(nums1.slice(0,m));
-    console.log(nums1.length-m);
-    // return nums1.sort()
-};
 
 function Example9(){
     const size = useWinSize()
     
     return (
-        <div onClick={()=>{
-            merge([1,2,3,0,0,0],3,[2,5,6],3)
-        }}>页面的size：{size.width } X {size.height}</div>
+        <div >页面的size：{size.width } X {size.height}</div>
         
     )
 }
